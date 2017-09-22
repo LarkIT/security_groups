@@ -21,7 +21,7 @@ resource "aws_security_group" "ssh_jump" {
       protocol    = "-1"
       cidr_blocks = ["${module.vpc.cidr}"]
     }
-    vpc_id = "${module.vpc.vpc_id}"
+    vpc_id = "${var.vpc_id}"
 
     tags {
         Name = "${var.ssh_name}"
