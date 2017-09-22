@@ -7,3 +7,7 @@ variable "vpc_id" {
   description = "The AWS region."
 }
 
+variable "cidr" {
+  description = "The AWS region."
+}
+
