@@ -11,6 +11,3 @@ variable "cidr" {
   description = "The AWS region."
 }
 
-variable "general_id" {
-  description = "The AWS region."
-}
