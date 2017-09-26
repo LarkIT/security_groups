@@ -1,5 +1,6 @@
 resource "aws_security_group" "ssh_jump" {
-    name = "${var.ssh_name}"
+    name        = "${var.ssh_name}"
+    vpc_id      = "${var.vpc_id}"
     description = "SSH Jump Host - Temporary Access"
 
     ingress {
@@ -21,7 +22,6 @@ resource "aws_security_group" "ssh_jump" {
       protocol    = "-1"
       cidr_blocks = ["${var.cidr}"]
     }
-    vpc_id = "${var.vpc_id}"
 
     tags {
         Name = "${var.ssh_name}"
