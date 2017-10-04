@@ -16,14 +16,14 @@ resource "aws_security_group_rule" "general-in-vpc-ping" {
   cidr_blocks       = ["${var.cidr}"]
 }
 
-#resource "aws_security_group_rule" "general-in-jumphost-ssh" {
-#  security_group_id        = "${aws_security_group.general.id}"
-#  type                     = "ingress"
-#  from_port                = 22
-#  to_port                  = 22
-#  protocol                 = "tcp"
-#  source_security_group_id = "${aws_security_group.ssh_jump.id}"
-#}
+resource "aws_security_group_rule" "general-in-jumphost-ssh" {
+  security_group_id        = "${aws_security_group.general.id}"
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+  source_security_group_id = "${aws_security_group.ssh_jump.id}"
+}
 
 resource "aws_security_group" "foreman" {
     name        = "foreman"
