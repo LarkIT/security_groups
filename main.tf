@@ -25,6 +25,13 @@ resource "aws_security_group_rule" "general-in-jumphost-ssh" {
 #  source_security_group_id = "${aws_security_group.ssh_jump.id}"
 }
 
+resource "aws_security_group" "foreman" {
+    name        = "foreman"
+    description = "Allow puppet and foreman connections."
+    tags { Name = "foreman" }
+    vpc_id      = "${var.vpc_id}"
+}
+
 resource "aws_security_group_rule" "general-out-foreman-puppet" {
   security_group_id = "${aws_security_group.general.id}"
   type = "egress"
