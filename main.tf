@@ -9,9 +9,27 @@ resource "aws_security_group" "general" {
 
 resource "aws_security_group_rule" "general-in-vpc-ping" {
   security_group_id = "${aws_security_group.general.id}"
-  type = "ingress"
-  from_port = -1
-  to_port = -1
-  protocol = "icmp"
-  cidr_blocks = ["${var.cidr}"]
+  type              = "ingress"
+  from_port         = -1
+  to_port           = -1
+  protocol          = "icmp"
+  cidr_blocks       = ["${var.cidr}"]
+}
+
+resource "aws_security_group_rule" "general-in-jumphost-ssh" {
+  security_group_id        = "${aws_security_group.general.id}"
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
+#  source_security_group_id = "${aws_security_group.ssh_jump.id}"
+}
+
+resource "aws_security_group_rule" "general-out-foreman-puppet" {
+  security_group_id = "${aws_security_group.general.id}"
+  type = "egress"
+  from_port = 8140
+  to_port = 8140
+  protocol = "tcp"
+  source_security_group_id = "${aws_security_group.foreman.id}"
 }
