@@ -9,3 +9,7 @@ output "ssh_jump_id" {
 output "group_id" {
   value = "${aws_security_group.general.id}"
 }
+
+output "foreman_id" {
+  value = "${aws_security_group.foreman.id}"
+}
