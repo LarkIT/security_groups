@@ -1,5 +1,5 @@
 resource "aws_security_group" "ssh_jump" {
-    name        = "${var.ssh_name}"
+    name        = "ssh_jump"
     vpc_id      = "${var.vpc_id}"
     description = "SSH Jump Host - Temporary Access"
 
@@ -31,6 +31,6 @@ resource "aws_security_group" "ssh_jump" {
     }
 
     tags {
-        Name = "${var.ssh_name}"
+        Name = "${var.host_prefix}-jumphost-01"
     }
 }
