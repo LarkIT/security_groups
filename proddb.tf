@@ -2,7 +2,7 @@ resource "aws_security_group" "proddb" {
     name = "proddb"
     description = "Allow proddb connections."
     tags { Name = "proddb" }
-    vpc_id = "${aws_vpc.production.id}"
+    vpc_id = "${var.vpc_id}"
 }
 
 resource "aws_security_group_rule" "proddb-in-prodapp-psql" {
