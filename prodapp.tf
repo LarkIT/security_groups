@@ -6,32 +6,23 @@ resource "aws_security_group" "prodapp" {
     tags { Name = "prodapp" }
 }
 
-resource "aws_security_group_rule" "prodapp-in-elb-http" {
-  security_group_id = "${aws_security_group.prodapp.id}"
-  type = "ingress"
-  from_port = 80
-  to_port = 80
-  protocol = "tcp"
-  source_security_group_id = "${aws_security_group.prodapp-lb.id}"
-}
+#resource "aws_security_group_rule" "prodapp-in-elb-http" {
+#  security_group_id = "${aws_security_group.prodapp.id}"
+#  type = "ingress"
+#  from_port = 80
+#  to_port = 80
+#  protocol = "tcp"
+#  source_security_group_id = "${aws_security_group.prodapp-lb.id}"
+#}
 
-resource "aws_security_group_rule" "prodapp-in-elb-https" {
-  security_group_id = "${aws_security_group.prodapp.id}"
-  type = "ingress"
-  from_port = 443
-  to_port = 443
-  protocol = "tcp"
-  source_security_group_id = "${aws_security_group.prodapp-lb.id}"
-}
-
-resource "aws_security_group_rule" "prodreport-in-https" {
-  security_group_id = "${aws_security_group.prodapp.id}"
-  type = "ingress"
-  from_port = 443
-  to_port = 443
-  protocol = "tcp"
-  source_security_group_id = "${aws_security_group.prodreport.id}"
-}
+#resource "aws_security_group_rule" "prodapp-in-elb-https" {
+#  security_group_id = "${aws_security_group.prodapp.id}"
+#  type = "ingress"
+#  from_port = 443
+#  to_port = 443
+#  protocol = "tcp"
+#  source_security_group_id = "${aws_security_group.prodapp-lb.id}"
+#}
 
 resource "aws_security_group_rule" "prodreport-out-https" {
   security_group_id = "${aws_security_group.prodapp.id}"
@@ -76,15 +67,6 @@ resource "aws_security_group_rule" "prodapp-in-vpn-vhttps" {
   to_port = 2010
   protocol = "tcp"
   source_security_group_id = "${aws_security_group.prodapp-lb.id}"
-}
-
-resource "aws_security_group_rule" "prodapp-in-vpn-rdp" {
-  security_group_id = "${aws_security_group.prodapp.id}"
-  type = "ingress"
-  from_port = 3389
-  to_port = 3389
-  protocol = "tcp"
-  source_security_group_id = "${aws_security_group.vpn.id}"
 }
 
 resource "aws_security_group_rule" "prodapp-in-jumphost-rdp" {
@@ -139,7 +121,7 @@ resource "aws_security_group_rule" "prodapp-out-all" {
   from_port = 0
   to_port = 0
   protocol = "-1"
-  cidr_blocks = ["${var.vpc_cidr}","0.0.0.0/0"]
+  cidr_blocks = ["${var.cidr}","0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "prodapp-out-proddb-psql" {
