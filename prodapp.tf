@@ -2,7 +2,7 @@
 resource "aws_security_group" "prodapp" {
     name = "prodapp"
     description = "Allow prodapp connections."
-    vpc_id = "${aws_vpc.production.id}"
+    vpc_id = "${var.vpc_id}"
     tags { Name = "prodapp" }
 }
 
