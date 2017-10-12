@@ -60,14 +60,14 @@ resource "aws_security_group_rule" "prodapp-in-vpn-https" {
   source_security_group_id = "${aws_security_group.vpn.id}"
 }
 
-resource "aws_security_group_rule" "prodapp-in-vpn-vhttps" {
-  security_group_id = "${aws_security_group.prodapp.id}"
-  type = "ingress"
-  from_port = 2001
-  to_port = 2010
-  protocol = "tcp"
-  source_security_group_id = "${aws_security_group.prodapp-lb.id}"
-}
+#resource "aws_security_group_rule" "prodapp-in-vpn-vhttps" {
+#  security_group_id = "${aws_security_group.prodapp.id}"
+#  type = "ingress"
+#  from_port = 2001
+#  to_port = 2010
+#  protocol = "tcp"
+#  source_security_group_id = "${aws_security_group.prodapp-lb.id}"
+#}
 
 resource "aws_security_group_rule" "prodapp-in-jumphost-rdp" {
   security_group_id = "${aws_security_group.prodapp.id}"
