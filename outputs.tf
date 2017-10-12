@@ -13,3 +13,11 @@ output "group_id" {
 output "foreman_id" {
   value = "${aws_security_group.foreman.id}"
 }
+
+output "prodapp_id" {
+  value = "${aws_security_group.prodapp.id}"
+}
+
+output "proddb_id" {
+  value = "${aws_security_group.proddb.id}"
+}
