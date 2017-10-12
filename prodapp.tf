@@ -24,14 +24,14 @@ resource "aws_security_group" "prodapp" {
 #  source_security_group_id = "${aws_security_group.prodapp-lb.id}"
 #}
 
-resource "aws_security_group_rule" "prodreport-out-https" {
-  security_group_id = "${aws_security_group.prodapp.id}"
-  type = "egress"
-  from_port = 443
-  to_port = 443
-  protocol = "tcp"
-  source_security_group_id = "${aws_security_group.prodreport.id}"
-}
+#resource "aws_security_group_rule" "prodreport-out-https" {
+#  security_group_id = "${aws_security_group.prodapp.id}"
+#  type = "egress"
+#  from_port = 443
+#  to_port = 443
+#  protocol = "tcp"
+#  source_security_group_id = "${aws_security_group.prodreport.id}"
+#}
 
 resource "aws_security_group_rule" "prodapp-in-vpn-http" {
   security_group_id = "${aws_security_group.prodapp.id}"
@@ -76,15 +76,6 @@ resource "aws_security_group_rule" "prodapp-in-jumphost-rdp" {
   to_port = 3389
   protocol = "tcp"
   source_security_group_id = "${aws_security_group.ssh_jump.id}"
-}
-
-resource "aws_security_group_rule" "prodapp-in-shared-rdp" {
-  security_group_id = "${aws_security_group.prodapp.id}"
-  type = "ingress"
-  from_port = 3389
-  to_port = 3389
-  protocol = "tcp"
-  cidr_blocks = ["${values(var.shared_subnet_cidr)}"]
 }
 
 resource "aws_security_group_rule" "prodapp-in-jumphost-https" {
