@@ -6,11 +6,11 @@ resource "aws_security_group" "proddb" {
 }
 
 resource "aws_security_group_rule" "proddb-in-prodapp-psql" {
-  security_group_id = "${aws_security_group.proddb.id}"
-  type = "ingress"
-  from_port = 5432
-  to_port = 5432
-  protocol = "tcp"
+  security_group_id        = "${aws_security_group.proddb.id}"
+  type                     = "ingress"
+  from_port                = 5432
+  to_port                  = 5432
+  protocol                 = "tcp"
   source_security_group_id = "${aws_security_group.prodapp.id}"
 }
 
