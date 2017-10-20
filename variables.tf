@@ -14,3 +14,7 @@ variable "cidr" {
 variable "host_prefix" {
   description = "Hostname prefix (abc)"
 }
+
+variable "dmz_subnet_cidr" {
+  description = "AWS subnets for all dmz availability zones"
+}
