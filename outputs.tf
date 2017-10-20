@@ -21,3 +21,7 @@ output "prodapp_id" {
 output "proddb_id" {
   value = "${aws_security_group.proddb.id}"
 }
+
+output "gitlab_id" {
+  value = "${aws_security_group.gitlab.id}"
+}
