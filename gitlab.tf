@@ -20,7 +20,7 @@ resource "aws_security_group_rule" "gitlab-in-any-https" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  cidr_blocks       = ["${var.infra_services_cidr[ "a" ]}, ${var.infra_services_cidr[ "b" ]}, ${var.infra_services_cidr[ "c" ]}"]
+  cidr_blocks       = ["${var.infra_services_cidr[ "a" ]}"]
 }
 
 
