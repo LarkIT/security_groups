@@ -16,5 +16,6 @@ variable "host_prefix" {
 }
 
 variable "infra_services_cidr" {
+  type        = map
   description = "AWS subnets for all dmz availability zones"
 }
