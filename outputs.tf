@@ -29,3 +29,7 @@ output "gitlab_id" {
 output "stageapp_id" {
   value = "${aws_security_group.stageapp.id}"
 }
+
+output "app-lb_id" {
+  value = "${aws_security_group.app-lb.id}"
+}
