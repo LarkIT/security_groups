@@ -14,3 +14,4 @@ resource "aws_security_group_rule" "stagedb-in-stageapp-psql" {
   to_port                  = 5432
   protocol                 = "tcp"
   source_security_group_id = "${aws_security_group.stageapp.id}"
+}
