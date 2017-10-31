@@ -37,3 +37,8 @@ output "stagedb_id" {
 output "app-lb_id" {
   value = "${aws_security_group.app-lb.id}"
 }
+
+
+utput "vpn_id" {
+  value = "${aws_security_group.vpn.id}"
+}
