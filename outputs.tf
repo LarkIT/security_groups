@@ -39,6 +39,6 @@ output "app-lb_id" {
 }
 
 
-utput "vpn_id" {
+output "vpn_id" {
   value = "${aws_security_group.vpn.id}"
 }
