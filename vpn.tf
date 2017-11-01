@@ -23,7 +23,7 @@ resource "aws_security_group_rule" "vpn-in-any-https" {
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "vpn-in-any-https" {
+resource "aws_security_group_rule" "vpn-in-any-https-default" {
   security_group_id = "${aws_security_group.vpn.id}"
   type              = "ingress"
   from_port         = 943
