@@ -1,3 +1,8 @@
+################################################
+#
+# Staging Security Group
+#
+################################################
 resource "aws_security_group" "app-lb" {
     name        = "app-lb"
     description = "Allow stageapp ELB connections."
@@ -45,9 +50,13 @@ resource "aws_security_group_rule" "app-lb-out-app-https" {
   source_security_group_id = "${aws_security_group.stageapp.id}"
 }
 
-
+################################################
+#
+# Production Security Group
+#
+################################################
 resource "aws_security_group" "prod-app-lb" {
-    name        = "app-lb"
+    name        = "prod-app-lb"
     description = "Allow prodapp ELB connections."
     vpc_id      = "${var.vpc_id}"
     tags {
