@@ -34,8 +34,8 @@ output "stagedb_id" {
   value = "${aws_security_group.stagedb.id}"
 }
 
-output "app-lb_id" {
-  value = "${aws_security_group.app-lb.id}"
+output "stage-app-lb_id" {
+  value = "${aws_security_group.stage-app-lb.id}"
 }
 
 output "prod-app-lb_id" {
