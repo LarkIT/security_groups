@@ -48,7 +48,7 @@ resource "aws_security_group_rule" "app-lb-out-app-https" {
 
 resource "aws_security_group" "prod-app-lb" {
     name        = "app-lb"
-    description = "Allow stageapp ELB connections."
+    description = "Allow prodapp ELB connections."
     vpc_id      = "${var.vpc_id}"
     tags {
       Name = "prod-app-lb"
