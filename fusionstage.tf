@@ -1,5 +1,5 @@
 resource "aws_security_group" "stage-fusion" {
-    name        = "stage_fusion"
+    name        = "stage-fusion"
     description = "Allow stageapp connections to fusionstage"
     vpc_id      = "${var.vpc_id}"
     tags {
