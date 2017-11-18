@@ -94,6 +94,6 @@ resource "aws_security_group_rule" "stageapp-to-fusionstage_api" {
   from_port                = 443
   to_port                  = 443
   protocol                 = "tcp"
-  source_security_group_id = "${aws_security_group.stage_fusion.id}"
+  source_security_group_id = "${aws_security_group.stage-fusion.id}"
 }
 
