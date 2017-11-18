@@ -22,5 +22,5 @@ resource "aws_security_group_rule" "stage_fusion" {
   from_port                = 8764
   to_port                  = 8764
   protocol                 = "tcp"
-  source_security_group_id = "${aws_security_group.stage.id}"
+  source_security_group_id = "${aws_security_group.stageapp.id}"
 }
