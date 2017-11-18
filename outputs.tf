@@ -45,3 +45,7 @@ output "prod-app-lb_id" {
 output "vpn_id" {
   value = "${aws_security_group.vpn.id}"
 }
+
+output "stage_id" {
+  value = "${aws_security_group.stage_fusion.id}"
+}
