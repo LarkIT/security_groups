@@ -7,7 +7,7 @@ resource "aws_security_group" "stage-fusion" {
     }
 }
 
-resource "aws_security_group_rule" "stage_fusion_api" {
+resource "aws_security_group_rule" "stage-fusion-api" {
   security_group_id        = "${aws_security_group.stage-fusion.id}"
   type                     = "ingress"
   from_port                = 8765
@@ -16,11 +16,20 @@ resource "aws_security_group_rule" "stage_fusion_api" {
   source_security_group_id = "${aws_security_group.stageapp.id}"
 }
 
-resource "aws_security_group_rule" "stage_fusion" {
+resource "aws_security_group_rule" "stage-fusion" {
   security_group_id        = "${aws_security_group.stage-fusion.id}"
   type                     = "ingress"
   from_port                = 8764
   to_port                  = 8764
+  protocol                 = "tcp"
+  source_security_group_id = "${aws_security_group.stageapp.id}"
+}
+
+resource "aws_security_group_rule" "stage-fusion-solr" {
+  security_group_id        = "${aws_security_group.stage-fusion.id}"
+  type                     = "ingress"
+  from_port                = 8983
+  to_port                  = 8983
   protocol                 = "tcp"
   source_security_group_id = "${aws_security_group.stageapp.id}"
 }
