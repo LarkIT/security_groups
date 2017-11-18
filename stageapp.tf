@@ -88,29 +88,12 @@ resource "aws_security_group_rule" "stageapp-out-all" {
   cidr_blocks = ["${var.cidr}","0.0.0.0/0"]
 }
 
-resource "aws_security_group_rule" "stageapp-to-fusionstage_api" {
-  security_group_id        = "${aws_security_group.stageapp.id}"
-  type                     = "ingress"
-  from_port                = 443
-  to_port                  = 443
-  protocol                 = "tcp"
-  source_security_group_id = "${aws_security_group.fusion_stage.id}"
-}
-
-#resource "aws_security_group_rule" "stageapp-out-proddb-psql" {
+#resource "aws_security_group_rule" "stageapp-to-fusionstage_api" {
 #  security_group_id        = "${aws_security_group.stageapp.id}"
-#  type                     = "egress"
-#  from_port                = 5432
-#  to_port                  = 5432
+#  type                     = "ingress"
+#  from_port                = 443
+#  to_port                  = 443
 #  protocol                 = "tcp"
-#  source_security_group_id = "${aws_security_group.proddb.id}"
+#  source_security_group_id = "${aws_security_group.fusion_stage.id}"
 #}
 
-#resource "aws_security_group_rule" "proddb-in-stageapp-psql" {
-#  security_group_id        = "${aws_security_group.proddb.id}"
-#  type                     = "ingress"
-#  from_port                = 5432
-#  to_port                  = 5432
-#  protocol                 = "tcp"
-#  source_security_group_id = "${aws_security_group.stageapp.id}"
-#}
