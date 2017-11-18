@@ -88,12 +88,12 @@ resource "aws_security_group_rule" "stageapp-out-all" {
   cidr_blocks = ["${var.cidr}","0.0.0.0/0"]
 }
 
-#resource "aws_security_group_rule" "stageapp-to-fusionstage_api" {
-#  security_group_id        = "${aws_security_group.stageapp.id}"
-#  type                     = "ingress"
-#  from_port                = 443
-#  to_port                  = 443
-#  protocol                 = "tcp"
-#  source_security_group_id = "${aws_security_group.fusion_stage.id}"
-#}
+resource "aws_security_group_rule" "stageapp-to-fusionstage_api" {
+  security_group_id        = "${aws_security_group.stageapp.id}"
+  type                     = "ingress"
+  from_port                = 443
+  to_port                  = 443
+  protocol                 = "tcp"
+  source_security_group_id = "${aws_security_group.fusion_stage.id}"
+}
 
