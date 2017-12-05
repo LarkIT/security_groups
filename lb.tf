@@ -8,7 +8,7 @@ resource "aws_security_group" "stage-app-lb" {
     description = "Allow stageapp ELB connections."
     vpc_id      = "${var.vpc_id}"
     tags { 
-      Name = "app-lb" 
+      Name = "stage-app-lb" 
     }
 }
 
