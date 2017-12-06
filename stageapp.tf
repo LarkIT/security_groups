@@ -7,20 +7,20 @@ resource "aws_security_group" "stageapp" {
 }
 
 resource "aws_security_group_rule" "stageapp-in-elb-http" {
-  security_group_id = "${aws_security_group.stageapp.id}"
-  type = "ingress"
-  from_port = 80
-  to_port = 80
-  protocol = "tcp"
+  security_group_id        = "${aws_security_group.stageapp.id}"
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
   source_security_group_id = "${aws_security_group.stage-app-lb.id}"
 }
 
 resource "aws_security_group_rule" "stageapp-in-elb-https" {
-  security_group_id = "${aws_security_group.stageapp.id}"
-  type = "ingress"
-  from_port = 443
-  to_port = 443
-  protocol = "tcp"
+  security_group_id        = "${aws_security_group.stageapp.id}"
+  type                     = "ingress"
+  from_port                = 443
+  to_port                  = 443
+  protocol                 = "tcp"
   source_security_group_id = "${aws_security_group.stage-app-lb.id}"
 }
 
