@@ -19,3 +19,9 @@ variable "infra_services_cidr" {
   type        = "map"
   description = "AWS subnets for all dmz availability zones"
 }
+
+variable "db_type" {
+  type = "string"
+  default = "mysql"
+  description = "Which database type (mysql, postgresql) we are using so we open the right ports"
+}

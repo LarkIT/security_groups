@@ -49,3 +49,11 @@ output "vpn_id" {
 output "stage-fusion_id" {
   value = "${aws_security_group.stage-fusion.id}"
 }
+
+output "aurora-stagedb_id" {
+  value = "${aws_security_group.aurora-stagedb.id}"
+}
+
+output "aurora-proddb_id" {
+  value = "${aws_security_group.aurora-proddb.id}"
+}
