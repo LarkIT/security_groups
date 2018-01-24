@@ -42,3 +42,12 @@ resource "aws_security_group_rule" "stagefusion-out-ssl" {
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = "${aws_security_group.stage-fusion.id}"
 }
+
+resource "aws_security_group_rule" "stagefusion-out-nonssl" {
+  type              = "egress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = "${aws_security_group.stage-fusion.id}"
+}
