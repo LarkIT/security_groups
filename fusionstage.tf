@@ -35,10 +35,10 @@ resource "aws_security_group_rule" "stage-fusion-solr" {
 }
 
 resource "aws_security_group_rule" "stagefusion-out-ssl" {
-  security_group_id = "${aws_security_group.stage-fusion.id}"
   type              = "egress"
   from_port         = 443
   to_port           = 443
-  protocol          = "-1"
-  cidr_blocks       = ["${var.cidr}","0.0.0.0/0"]
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = "${aws_security_group.stage-fusion.id}"
 }
