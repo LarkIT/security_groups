@@ -15,7 +15,7 @@ resource "aws_security_group_rule" "demodb-in-stageapp-psql" {
  from_port                = 5432
  to_port                  = 5432
  protocol                 = "tcp"
- source_security_group_id = "${aws_security_group.stageapp.id}"
+ source_security_group_id = "${aws_security_group.demoapp.id}"
 }
 
 resource "aws_security_group_rule" "demodb-in-stageapp-mysql" {
@@ -25,7 +25,7 @@ resource "aws_security_group_rule" "demodb-in-stageapp-mysql" {
  from_port                = 3306
  to_port                  = 3306
  protocol                 = "tcp"
- source_security_group_id = "${aws_security_group.prodapp.id}"
+ source_security_group_id = "${aws_security_group.demoapp.id}"
 }
 
 
