@@ -8,7 +8,7 @@ resource "aws_security_group" "demodb" {
 }
 
 
-resource "aws_security_group_rule" "demodb-in-stageapp-psql" {
+resource "aws_security_group_rule" "demodb-in-demoapp-psql" {
  count                    = "${var.db_type == "postgres" ? 1 : 0 }"
  security_group_id        = "${aws_security_group.demodb.id}"
  type                     = "ingress"
@@ -18,7 +18,7 @@ resource "aws_security_group_rule" "demodb-in-stageapp-psql" {
  source_security_group_id = "${aws_security_group.demoapp.id}"
 }
 
-resource "aws_security_group_rule" "demodb-in-stageapp-mysql" {
+resource "aws_security_group_rule" "demodb-in-demoapp-mysql" {
  count                    = "${var.db_type == "mysql" ? 1 : 0 }"
  security_group_id        = "${aws_security_group.demodb.id}"
  type                     = "ingress"
