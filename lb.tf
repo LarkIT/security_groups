@@ -145,7 +145,7 @@ resource "aws_security_group_rule" "demo-app-lb-out-app-http" {
   from_port                = 80
   to_port                  = 80
   protocol                 = "tcp"
-  source_security_group_id = "${aws_security_group.demo.id}"
+  source_security_group_id = "${aws_security_group.demoapp.id}"
 }
 
 resource "aws_security_group_rule" "demo-app-lb-out-app-https" {
@@ -154,6 +154,6 @@ resource "aws_security_group_rule" "demo-app-lb-out-app-https" {
   from_port                = 443
   to_port                  = 443
   protocol                 = "tcp"
-  source_security_group_id = "${aws_security_group.demo.id}"
+  source_security_group_id = "${aws_security_group.demoapp.id}"
 }
 
