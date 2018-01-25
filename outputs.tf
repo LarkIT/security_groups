@@ -38,6 +38,11 @@ output "stagedb_id" {
   value = "${aws_security_group.stagedb.id}"
 }
 
+output "demodb_id" {
+  value = "${aws_security_group.demodb.id}"
+}
+
+
 output "stage-app-lb_id" {
   value = "${aws_security_group.stage-app-lb.id}"
 }
