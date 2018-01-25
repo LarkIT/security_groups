@@ -42,6 +42,10 @@ output "demodb_id" {
   value = "${aws_security_group.demodb.id}"
 }
 
+output "demoapp_id" {
+  value = "${aws_security_group.demoapp.id}"
+}
+
 
 output "stage-app-lb_id" {
   value = "${aws_security_group.stage-app-lb.id}"
@@ -49,6 +53,10 @@ output "stage-app-lb_id" {
 
 output "prod-app-lb_id" {
   value = "${aws_security_group.prod-app-lb.id}"
+}
+
+output "demo-app-lb_id" {
+  value = "${aws_security_group.demo-app-lb.id}"
 }
 
 output "vpn_id" {
