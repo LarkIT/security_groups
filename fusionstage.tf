@@ -16,13 +16,13 @@ resource "aws_security_group_rule" "stage-fusion-api" {
   source_security_group_id = "${aws_security_group.stageapp.id}"
 }
 
-resource "aws_security_group_rule" "stage-fusion" {
-  security_group_id        = "${aws_security_group.stage-fusion.id}"
-  type                     = "ingress"
-  from_port                = 8764
-  to_port                  = 8764
-  protocol                 = "tcp"
-  source_security_group_id = "${aws_security_group.stageapp.id}"
+resource "aws_security_group_rule" "stage-fusion-ui" {
+  security_group_id = "${aws_security_group.stage-fusion.id}"
+  type              = "ingress"
+  from_port         = 8764
+  to_port           = 8764
+  protocol          = "tcp"
+  cidr_blocks       = ["${var.cidr}"]
 }
 
 resource "aws_security_group_rule" "stage-fusion-solr" {
