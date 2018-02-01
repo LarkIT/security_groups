@@ -20,7 +20,7 @@ resource "aws_security_group_rule" "demoapp-in-elb-https" {
   from_port                = 443
   to_port                  = 443
   protocol                 = "tcp"
-  source_security_group_id = "${aws_security_group.stage-app-lb.id}"
+  source_security_group_id = "${aws_security_group.demo-app-lb.id}"
 }
 
 #resource "aws_security_group_rule" "prodreport-out-https" {
