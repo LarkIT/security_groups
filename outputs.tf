@@ -47,6 +47,10 @@ output "vpn_id" {
   value = "${aws_security_group.vpn.id}"
 }
 
+output "pulp_id" {
+  value = "${aws_security_group.pulp.id}"
+}
+
 output "stage-fusion_id" {
   value = "${aws_security_group.stage-fusion.id}"
 }
