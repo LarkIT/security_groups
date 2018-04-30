@@ -31,7 +31,7 @@ resource "aws_security_group_rule" "stage-fusion-ui" {
   from_port         = 8764
   to_port           = 8764
   protocol          = "tcp"
-  cidr_blocks       = ["172.22.40.0/24", "172.22.140.0/24", "172.22.240.0/24", "172.20.40.100/32", "172.20.140.100/32", "172.20.240.100/32"]
+  cidr_blocks       = ["172.22.40.0/24", "172.22.140.0/24", "172.22.240.0/24", "172.20.40.0/24", "172.20.40.100/32", "172.20.140.100/32", "172.20.240.100/32"]
 }
 
 resource "aws_security_group_rule" "stage-fusion-solr" {

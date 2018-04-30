@@ -55,6 +55,10 @@ output "stage-fusion_id" {
   value = "${aws_security_group.stage-fusion.id}"
 }
 
+output "prod-fusion_id" {
+  value = "${aws_security_group.prod-fusion.id}"
+}
+
 #output "aurora-stagedb_id" {
 #  value = "${aws_security_group.aurora-stagedb.id}"
 #}
