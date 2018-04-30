@@ -106,6 +106,33 @@ resource "aws_security_group_rule" "prodapp-out-proddb-psql" {
   source_security_group_id = "${aws_security_group.proddb.id}"
 }
 
+resource "aws_security_group_rule" "prodapp-to-fusionprod-api" {
+  security_group_id        = "${aws_security_group.prodapp.id}"
+  type                     = "egress"
+  from_port                = 8765
+  to_port                  = 8765
+  protocol                 = "tcp"
+  source_security_group_id = "${aws_security_group.prod-fusion.id}"
+}
+
+resource "aws_security_group_rule" "prodapp-to-fusionprod" {
+  security_group_id        = "${aws_security_group.prodapp.id}"
+  type                     = "egress"
+  from_port                = 8764
+  to_port                  = 8764
+  protocol                 = "tcp"
+  source_security_group_id = "${aws_security_group.prod-fusion.id}"
+}
+
+resource "aws_security_group_rule" "prodapp-to-fusionprod-solr" {
+  security_group_id        = "${aws_security_group.prodapp.id}"
+  type                     = "egress"
+  from_port                = 8983
+  to_port                  = 8983
+  protocol                 = "tcp"
+  source_security_group_id = "${aws_security_group.prod-fusion.id}"
+}
+
 #resource "aws_security_group" "proddb" {
 #    name = "proddb"
 #    description = "Allow proddb connections."
